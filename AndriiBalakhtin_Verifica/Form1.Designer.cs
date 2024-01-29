@@ -28,77 +28,123 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.txtBoxSearch = new System.Windows.Forms.TextBox();
-            this.BoxSearch = new System.Windows.Forms.GroupBox();
-            this.BoxElenco = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.BoxSearch.SuspendLayout();
-            this.BoxElenco.SuspendLayout();
-            this.SuspendLayout();
+            dataGridView = new DataGridView();
+            Codice_Farnell = new DataGridViewTextBoxColumn();
+            Descrizione = new DataGridViewTextBoxColumn();
+            Produttore = new DataGridViewTextBoxColumn();
+            Codice_produttore = new DataGridViewTextBoxColumn();
+            Quantita = new DataGridViewTextBoxColumn();
+            Prezzo_unitario = new DataGridViewTextBoxColumn();
+            textBoxSearch = new TextBox();
+            BoxSearch = new GroupBox();
+            BoxElenco = new GroupBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            BoxSearch.SuspendLayout();
+            BoxElenco.SuspendLayout();
+            SuspendLayout();
             // 
             // dataGridView
             // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(6, 22);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowTemplate.Height = 25;
-            this.dataGridView.Size = new System.Drawing.Size(689, 267);
-            this.dataGridView.TabIndex = 0;
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { Codice_Farnell, Descrizione, Produttore, Codice_produttore, Quantita, Prezzo_unitario });
+            dataGridView.Location = new Point(6, 22);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(1040, 420);
+            dataGridView.TabIndex = 0;
+            dataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
             // 
-            // txtBoxSearch
+            // Codice_Farnell
             // 
-            this.txtBoxSearch.Location = new System.Drawing.Point(6, 14);
-            this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(100, 23);
-            this.txtBoxSearch.TabIndex = 1;
-            this.txtBoxSearch.TextChanged += new System.EventHandler(this.txtBoxSearch_TextChanged);
+            Codice_Farnell.HeaderText = "Codice_Farnell";
+            Codice_Farnell.Name = "Codice_Farnell";
+            Codice_Farnell.Width = 90;
+            // 
+            // Descrizione
+            // 
+            Descrizione.HeaderText = "Descrizione";
+            Descrizione.Name = "Descrizione";
+            Descrizione.Width = 400;
+            // 
+            // Produttore
+            // 
+            Produttore.HeaderText = "Produttore";
+            Produttore.Name = "Produttore";
+            Produttore.Width = 150;
+            // 
+            // Codice_produttore
+            // 
+            Codice_produttore.HeaderText = "Codice_produttore";
+            Codice_produttore.Name = "Codice_produttore";
+            Codice_produttore.Width = 150;
+            // 
+            // Quantita
+            // 
+            Quantita.HeaderText = "Quantita";
+            Quantita.Name = "Quantita";
+            // 
+            // Prezzo_unitario
+            // 
+            Prezzo_unitario.HeaderText = "Prezzo_unitario";
+            Prezzo_unitario.Name = "Prezzo_unitario";
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Location = new Point(6, 14);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.Size = new Size(100, 23);
+            textBoxSearch.TabIndex = 1;
+            textBoxSearch.TextChanged += textBoxCerca_TextChanged;
             // 
             // BoxSearch
             // 
-            this.BoxSearch.Controls.Add(this.txtBoxSearch);
-            this.BoxSearch.Location = new System.Drawing.Point(12, 83);
-            this.BoxSearch.Name = "BoxSearch";
-            this.BoxSearch.Size = new System.Drawing.Size(114, 43);
-            this.BoxSearch.TabIndex = 2;
-            this.BoxSearch.TabStop = false;
-            this.BoxSearch.Text = "Search";
+            BoxSearch.Controls.Add(textBoxSearch);
+            BoxSearch.Location = new Point(12, 12);
+            BoxSearch.Name = "BoxSearch";
+            BoxSearch.Size = new Size(114, 43);
+            BoxSearch.TabIndex = 2;
+            BoxSearch.TabStop = false;
+            BoxSearch.Text = "Search";
             // 
             // BoxElenco
             // 
-            this.BoxElenco.Controls.Add(this.dataGridView);
-            this.BoxElenco.Location = new System.Drawing.Point(12, 132);
-            this.BoxElenco.Name = "BoxElenco";
-            this.BoxElenco.Size = new System.Drawing.Size(702, 295);
-            this.BoxElenco.TabIndex = 3;
-            this.BoxElenco.TabStop = false;
-            this.BoxElenco.Text = "Elenco";
+            BoxElenco.Controls.Add(dataGridView);
+            BoxElenco.Location = new Point(12, 55);
+            BoxElenco.Name = "BoxElenco";
+            BoxElenco.Size = new Size(1052, 448);
+            BoxElenco.TabIndex = 3;
+            BoxElenco.TabStop = false;
+            BoxElenco.Text = "Elenco";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(719, 433);
-            this.Controls.Add(this.BoxElenco);
-            this.Controls.Add(this.BoxSearch);
-            this.Name = "Form1";
-            this.Text = "Andrii Balakhtin Verifica ";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.BoxSearch.ResumeLayout(false);
-            this.BoxSearch.PerformLayout();
-            this.BoxElenco.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new Size(1076, 515);
+            Controls.Add(BoxElenco);
+            Controls.Add(BoxSearch);
+            Name = "Form1";
+            Text = "Andrii Balakhtin Verifica ";
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            BoxSearch.ResumeLayout(false);
+            BoxSearch.PerformLayout();
+            BoxElenco.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView dataGridView;
         private TextBox TextBoxSearch;
-        private TextBox txtBoxSearch;
+        private TextBox textBoxSearch;
         private GroupBox BoxSearch;
         private GroupBox BoxElenco;
+        private DataGridViewTextBoxColumn Codice_Farnell;
+        private DataGridViewTextBoxColumn Descrizione;
+        private DataGridViewTextBoxColumn Produttore;
+        private DataGridViewTextBoxColumn Codice_produttore;
+        private DataGridViewTextBoxColumn Quantita;
+        private DataGridViewTextBoxColumn Prezzo_unitario;
     }
 }
